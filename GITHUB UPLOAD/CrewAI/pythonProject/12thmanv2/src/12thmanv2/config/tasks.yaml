@@ -1,0 +1,54 @@
+findCause_task:
+  description: >
+    Review the information given about the process which can be a description of the process, a PNID or a PFD etc.
+    Be able to accurately pinpoint the location of the process units on the process and be able to understand 
+    the effects of changing flowrates, opening and closing valves has on the entire process.
+    Be able to accurately develop reasons as to why some transmitters may have anomalous readings and correctly.
+    Be able to concisely compile all the information about the possible causes and your reason as to why it is a 
+    possible cause to the anomaly.
+  expected_output: >
+    A easy to read informative table that other LLM agents can easily understand and take information from such 
+    that they can complete their tasks, include the anomaly aswell.
+  agent: causefinder
+
+
+distinguishCause_Task:
+  description:
+    Be able to, through reasoning and logic, decide which of the reasons given by the Cause Finder 
+    agent is the main cause for the anomaly in the plant.
+    Be able to concisely compile all the information about why the reason you have chosen is the 
+    correct reason in a table such that the effect finder and solution finder can easily understand it.
+  expected_output: >
+    A easy to read informative table that other LLM agents can easily understand and take information from such 
+    that they can complete their tasks, include the anomaly in this table.
+  agent: causedistinguisher
+
+
+findEffect_Task:
+  description: >
+    Be able to predict the effect of the anomaly on the plant and possible knock-on effects it has on 
+    the plant if left untreated.
+    Be able to concisely compile all the information about the cause and its’ effect on the process.
+  expected_output: >
+    A easy to read informative table that the Solution Finder agent can easily understand and take 
+    information from such that it can complete its’ tasks, include the anomaly in this table.
+  agent: effectfinder
+
+
+findSolution_Task:
+  description: >
+    Be able to develop an appropriate and feasible solution to the problem suggested by the cause distinguisher.
+    Be able to explain how this solution fixes the anomaly.
+  expected_output: >
+    An appropriate and accurate solution to the anomaly that is to be in given to the Integrator agent.
+  agent: solutionfinder
+
+Integrate_Task:
+  description: >
+    Be able to take all the information from the Solution Finder and be able to concisely compile all the 
+    information about why this solution works and how it will return the process to its normal operating conditions.
+  expected_output: >
+    A easy to read informative table that explains how this solution will fix the anomaly and also 
+    include the anomaly in the table aswell.
+  agent: integrator
+

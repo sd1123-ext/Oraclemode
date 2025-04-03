@@ -1,0 +1,378 @@
+Pump Commissioning Test 1 – Rig Description
+Process P&ID
+
+[JL1] 
+Process Overview: 
+This is a section of the P&ID of the carbon capture pilot plant at Imperial College London. MEA (Mono-Ethylamine) is to be circulated around indicated in the blue highlighting. The aim of this loop is to determine the maximum safe pump operating speed J100. There is no heating from heaters H200a and H200b, there is no cooling from cooler C100. The yellow highlighted streams are different bypasses or routes the MEA could take should there be a problem with a valve resulting in a leak. 
+
+Below is same process. The nomenclature: E: desorber, V: manual valve, C: heat exchanger, TT or TE: temperature transmitter, PT: pressure transmitter, PDT: pressure differential transmitter, FT: flow transmitter, H: reboiler, RV: relief valve, SOV: solenoid valve, Z: filter, PCV: pressure control valve, B: blower, J: pump Refer to each unit as "unit type+ ID name", for example, V116 should be "manual valve V116" The code for constructing the networkx diagram of the system: 
+G.add_nodes_from([     'E100', 'V110', 'V112', 'TT104', 'C100', 'TE105',     'V113a', 'V113b', 'J100', 'PT104', 'B101', 'PCV122',     'V116', 'V117a', 'PDT105', 'Z102', 'V117b',     'V121', 'FT103', 'FT104', 'SOV125', 'H200a', 'TT212a',     'H200b', 'TT213', 'RV301', 'V403', 'V402' ]) G.add_edges_from([     ('E100', 'V110', {'tags':{'distillation column': ['bottom outlet']}}), ('V110', 'V112'),     ('V112', 'TT104'), ('TT104', 'C100'),     ('C100', 'TE105'), ('TE105', 'V113a'),     ('V113a', 'V113b'), ('V113b', 'J100'),     ('J100', 'PT104'), ('PT104', 'B101'),     ('B101', 'PCV122'), ('PCV122', 'V116'),     ('V116', 'V117a'), ('V117a', 'PDT105', {'tags':{'pressure              differential transmitter': ['in']}),     ('V117a', 'Z102'), ('PDT105', 'V117b', {'tags':{'pressure differential transmitter': ['out']}),     ('Z102', 'V117b'), ('V117b', 'V121'),     ('V121', 'FT103'), ('FT103', 'FT104'),     ('FT104', 'SOV125'), ('SOV125', 'H200a'),     ('H200a', 'TT212a'), ('TT212a', 'TT213'), ('SOV125', 'H200b'),     ('H200b', 'TT213'), ('TT213', 'RV301'),     ('RV301', 'V403'), ('V403', 'V402'), ('V402', 'E100',    {'tags':{'distillation column': ['top inlet']}}) ])
+
+
+Legend:
+Blue Highlighter – Main Stream
+Red Highlighter – Closed Valves
+Green Highlighter – Open Valves
+Yellow Highlighter – Bypass Streams (Numbered 1 to 11)
+
+Stream
+MEA[JL2]
+Flowrate Range (kg hr-1)
+0-12000
+Temperature (°C)
+25
+Pressure (bar)
+1
+Phase
+Liquid
+Component mass fractions[JL3]
+MEA
+0.15
+Water
+0.85
+(Ideally, the bypass streams 1 to 11 should have no flowrate. There should only be flowrate through the main stream and stripper column which should be in the range 0 to 12000 kg hr-1)
+
+Existing Instrumentation and Operation Ranges: The following valves are present on the process, on the following streams:
+Instrument P&ID label
+Instrument Type
+Possible states
+Current State
+Stream Located On
+V107
+Manual Globe Valve
+Open/Closed
+Closed
+Stripper Column
+V108
+Manual Needle Valve
+Open/Closed
+Closed
+Stripper Column
+V109
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 4
+V110
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V111
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 5
+V112
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V113a
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V113b
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V115
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 1
+V116
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V117a
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V117b
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V118
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 11
+V120
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 2
+V121
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V122
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 7
+V151
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 9
+V160
+Manual Globe Valve
+Open/Closed
+Closed
+Bypass Stream 6
+SOV123
+Solenoid Operated Valve
+Open/Closed
+Closed
+Bypass Stream 8
+SOV125
+Solenoid Operated Valve
+Open/Closed
+Open
+Main Stream
+SOV152
+Solenoid Operated Valve
+Open/Closed
+Closed
+Bypass Stream 9
+V200
+Manual Globe Valve
+Open/Closed
+Closed
+Stripper Column
+V201
+Manual Needle Valve
+Open/Closed
+Closed
+Stripper Column
+V202
+Manual Globe Valve
+Open/Closed
+Closed
+Stripper Column
+V203
+Manual Needle Valve
+Open/Closed
+Closed
+Stripper Column
+V300
+Manual Needle Valve
+Open/Closed
+Closed
+Stripper Column
+V301
+Manual Globe Valve
+Open/Closed
+Closed
+Stripper Column
+V302
+Manual Needle Valve
+Open/Closed
+Closed
+Stripper Column
+V315
+Manual Globe Valve
+Open/Closed
+Closed
+Main Stream
+V318
+Manual Globe Valve
+Open/Closed
+Closed
+Stripper Column
+V319
+Manual Globe Valve
+Open/Closed
+Closed
+Main stream
+V400
+Manual Globe Valve
+Open/Closed
+Closed
+Stripper Column
+V401
+Manual Needle Valve
+Open/Closed
+Closed
+Stripper Column
+V402
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+V403
+Manual Globe Valve
+Open/Closed
+Open
+Main Stream
+PCV122
+Pressure Control Valve
+Closed
+Closed
+Main Stream
+RV101
+Relief Valve
+Closed
+Closed
+Bypass Stream 1
+RV301
+Relief Valve
+Closed
+Closed
+Bypass Steam 3
+RV401
+Relief Valve
+Closed
+Closed
+Bypass Stream 2
+
+Process Units: The following transmitters are present on the process:
+Instrument P&ID label
+Process Unit
+Stream Located On
+J100
+Pump
+Main Stream
+Z102
+Filter
+Main Stream
+
+
+
+
+Existing Transmitters: The following transmitters are present on the process, on the following streams:
+Instrument P&ID label
+Transmitter Type
+Instrument Measurement Range[JL4]
+Stream Located On
+PT102
+Gauge Pressure Transmitter
+-1 to 4
+(barG)
+Stripper Column
+PT103
+Gauge Pressure Transmitter
+-1 to 10
+(barG)
+Main Stream
+PT104
+Gauge Pressure Transmitter
+-1 to 10 
+(barG)
+Main Stream
+PDT105
+Pressure Differential Transmitter
+0 to 2
+(bar)
+Main Stream
+FT103
+Electromagnetic Flow Meter
+120 to 12000
+(kg hr-1)
+Main Stream
+FT104
+Swirl Meter
+100 to 1600
+(kg hr-1)
+Main Stream
+LT101
+
+Differential Pressure Level Transmitter
+0 to 100
+(%)
+Stripper Column
+Existing Alarms and Triggers: The following transmitters have alarms and triggers stated below:
+Instrument P&ID label
+Trigger Value
+HH
+Trigger Value
+H
+Trigger Value
+L
+Trigger Value
+LL
+Located On Stream:
+PT102 (bar)
+4.50
+3.50
+1.00
+0.00
+Stripper Column
+PT103 (bar)
+4.50
+3.50
+1.00
+0.00
+Main Stream
+PT104 (bar)
+4.50
+3.50
+1.00
+0.00
+Main Stream
+PDT 105 (bar)
+0.45
+0.40
+
+0.10
+0.00
+Main Stream
+FT103 (kg hr-1)
+1000
+800
+80
+50
+Main Stream
+FT104 (kg hr-1)
+1000
+800
+80
+50
+Main Stream
+LT101 (%)
+
+95
+85
+5
+1
+Stripper Column
+Existing Switches: The following switches are present on the process:
+HH, High-High – 99%
+H, High – 95%
+L, Low – 5%
+LL, Low-Low – 1%
+Instrument P&ID label
+Switch Type
+Trigger Level
+Stream Located On
+PSHH116
+High-High
+2 (barG rising)
+Stripper Column
+PSHH400
+High-High
+2 (barG rising)
+Stripper Column
+LSHH100
+High-High
+99% Level
+Stripper Column
+LSLL100
+Low-Low
+1% Level
+Stripper Column
+
+[JL1]Need to indicate any bypass paths as streams - for instance - the filter bypass route. Or the bypass route which allows for entry into the column via V319 or through the highlighted path. Same for anything leading to RVs, side lines, paths you don’t want the flow going through.
+
+In the event that you don’t want flow on a particular stream (e.g. through V109), indicate the target flowrate as zero.
+[JL2]Indicate the intended flowrate range for the stream as well
+[JL3]Stream is 15% mass MEA, rest is water
+[JL4]Should be instrument measurement range

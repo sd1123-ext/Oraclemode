@@ -1,0 +1,67 @@
+#analyseimage_task:
+#  description: >
+#    Analyse this engineering drawing at: https://i.postimg.cc/htMf6XbZ/PNIDimage.png and provide
+#    a detailed description.
+#  expected_output: >
+#    A very detailed description of the engineering drawing explaining what process units are present in the image and
+#    what stream they are apart of.
+#  agent: imageanalyser
+
+findcause_task:
+  description: >
+    Review the information given about the process which can be a description of the process, a PNID or a PFD etc.
+    Be able to accurately pinpoint the location of the process units on the process and be able to understand 
+    the effects of changing flowrates, opening and closing valves has on the entire process.
+    Be able to accurately develop reasons as to why some transmitters may have anomalous readings and correctly.
+    Be able to concisely compile all the information about the possible causes and your reason as to why it is a 
+    possible cause to the anomaly.
+  expected_output: >
+    A easy to read informative table that other LLM agents can easily understand and take information from such 
+    that they can complete their tasks, include the anomaly aswell.
+  agent: causefinder
+
+
+distinguishcause_task:
+  description:
+    Be able to, through reasoning and logic, decide which of the reasons given by the Cause Finder 
+    agent is the main cause for the anomaly in the plant.
+    Be able to concisely compile all the information about why the reason you have chosen is the 
+    correct reason in a table such that the effect finder and solution finder can easily understand it.
+  expected_output: >
+    A easy to read informative table that other LLM agents can easily understand and take information from such 
+    that they can complete their tasks, include the anomaly in this table.
+  agent: causedistinguisher
+
+findeffect_task:
+  description: >
+    Be able to predict the effect of the anomaly on the plant and possible knock-on effects it has on 
+    the plant if left untreated.
+    Be able to concisely compile all the information about the cause and its’ effect on the process.
+    Be able to determine specific process units that will be affected.
+  expected_output: >
+    A easy to read informative table that the Solution Finder agent can easily understand and take 
+    information from such that it can complete its’ tasks, include the anomaly in this table.
+  agent: effectfinder
+
+
+findsolution_task:
+  description: >
+    Be able to develop an appropriate and feasible solution to the problem suggested by the cause distinguisher.
+    Be able to explain how this solution fixes the anomaly.
+  expected_output: >
+    An appropriate and accurate solution to the anomaly that is to be in given to the Integrator agent.
+  agent: solutionfinder
+
+integrateinfo_task:
+  description: >
+    Be able to take all the information from the Cause finder, Cause distinguisher, effect finder and solution finder
+    and be able to concisely compile all the information about why this solution works and how it will return the 
+    process to its normal operating conditions.
+  expected_output: >
+    To turn the tables from previous agents into a easy to read report in a word document that includes: the list of 
+    reasons for the cause of the {anomaly} from the cause finder agent, the explanation of the chosen {anomaly} by 
+    the cause distinguisher, the effect of the {anomaly}, the cause of the {anomaly} and how the 
+    solution will fix the {anomaly} and also include what the anomaly is (e.g. the anomaly is {anomaly}), 
+    separated using paragraphs.
+  agent: integrator
+  output_file: report.md

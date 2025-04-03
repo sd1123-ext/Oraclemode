@@ -1,0 +1,135 @@
+12th Man Project Brief
+
+Pump Commissioning Test 1 – Rig Description
+
+Process P&ID
+
+Process Overview:
+This document describes a section of the Process & Instrumentation Diagram (P&ID) of the carbon capture pilot plant at Imperial College London. The system is designed to circulate Mono-Ethylamine (MEA) through a loop to determine the maximum safe operating speed of Pump J100. 
+
+Key operational constraints:
+- **No heating** from heaters H200a and H200b.
+- **No cooling** from cooler C100.
+- **Alternative bypass routes (yellow-highlighted streams)** exist in case of valve failure leading to leaks.
+
+Legend:
+- **Blue** – Main Stream (MEA flow path).
+- **Red** – Closed Valves (preventing flow through specific paths).
+- **Green** – Open Valves (allowing flow through designated paths).
+- **Yellow** – Bypass Streams (alternative flow routes, numbered 1 to 11).
+
+### MEA Stream Properties:
+- **Flowrate Range**: 0 - 12,000 kg/hr
+- **Temperature**: 25°C
+- **Pressure**: 1 bar
+- **Phase**: Liquid
+- **Composition**:
+  - **MEA**: 15%
+  - **Water**: 85%
+
+*Ideal Flow Condition*: Bypass streams (1 to 11) should have **no flow**, and the only active flow should be through the **main stream and stripper column** within the range of 0 to 12,000 kg/hr.
+
+---
+
+## **Detailed Process & Instrumentation Diagram (P&ID) Description:**
+The **P&ID** visually represents the **carbon capture pilot plant**, illustrating **fluid flow**, **instrumentation**, and **control components** in the system.
+
+### **Main Components & Their Functions:**
+1. **Pump J100**  
+   - Located in the **main stream**.
+   - Ensures the continuous circulation of **MEA** through the process.
+   - Monitored for maximum safe operating speed.
+
+2. **Filter Z102**  
+   - Positioned along the **main stream** before the fluid reaches critical components.
+   - Removes impurities from the circulating **MEA** to prevent equipment damage.
+
+3. **Heaters (H200a, H200b)**  
+   - Not operational in this process setup.
+   - Would otherwise provide heat to facilitate chemical reactions.
+
+4. **Cooler C100**  
+   - Also inactive in this setup.
+   - Used to maintain temperature control when required.
+
+5. **Stripper Column**  
+   - Core part of the system, allowing separation and gas-liquid interactions.
+   - Equipped with **multiple manual and needle valves** to regulate flow.
+
+---
+
+### **Instrumentation and Control Valves in P&ID**
+The following table details the **valves** present in the system:
+
+| **Valve ID** | **Type** | **States** | **Stream** |
+|-------------|----------|------------|------------|
+| V107        | Manual Globe Valve | Open/Closed | Stripper Column |
+| V108        | Manual Needle Valve | Open/Closed | Stripper Column |
+| V109        | Manual Globe Valve | Open/Closed | Bypass Stream 4 |
+| V110        | Manual Globe Valve | Open/Closed | Main Stream |
+| V111        | Manual Globe Valve | Open/Closed | Bypass Stream 5 |
+| V112        | Manual Globe Valve | Open/Closed | Main Stream |
+| V113a       | Manual Globe Valve | Open/Closed | Main Stream |
+| V113b       | Manual Globe Valve | Open/Closed | Main Stream |
+| V115        | Manual Globe Valve | Open/Closed | Bypass Stream 1 |
+| V116        | Manual Globe Valve | Open/Closed | Main Stream |
+
+**(Additional valves continue with similar descriptions for bypasses and stripper column.)**
+
+---
+
+### **Sensors & Monitoring Equipment**
+Several transmitters are used for **pressure, flow, and level measurement**:
+
+| **Transmitter ID** | **Type** | **Measurement Range** | **Location** |
+|-------------------|----------|-----------------|------------|
+| PT102 | Gauge Pressure | -1 to 4 barG | Stripper Column |
+| PT103 | Gauge Pressure | -1 to 10 barG | Main Stream |
+| PT104 | Gauge Pressure | -1 to 10 barG | Main Stream |
+| PDT105 | Differential Pressure | 0 to 2 bar | Main Stream |
+| FT103 | Electromagnetic Flow Meter | 120 - 12,000 kg/hr | Main Stream |
+| FT104 | Swirl Meter | 100 - 1,600 kg/hr | Main Stream |
+| LT101 | Level Transmitter | 0 - 100% | Stripper Column |
+
+---
+
+### **Safety & Alarm Triggers**
+The following table summarizes **alarm trigger levels**:
+
+| **Instrument ID** | **HH (High-High)** | **H (High)** | **L (Low)** | **LL (Low-Low)** | **Location** |
+|------------------|-----------------|-----------|----------|-----------|------------|
+| PT102 | 4.50 bar | 3.50 bar | 1.00 bar | 0.00 bar | Stripper Column |
+| PT103 | 4.50 bar | 3.50 bar | 1.00 bar | 0.00 bar | Main Stream |
+| FT103 | 1000 kg/hr | 800 kg/hr | 80 kg/hr | 50 kg/hr | Main Stream |
+| FT104 | 1000 kg/hr | 800 kg/hr | 80 kg/hr | 50 kg/hr | Main Stream |
+| LT101 | 95% | 85% | 5% | 1% | Stripper Column |
+
+---
+
+### **Emergency Shutoff & Relief Mechanisms**
+To prevent overpressure scenarios, the system incorporates **relief and emergency valves**:
+
+| **Valve ID** | **Type** | **State** | **Stream** |
+|-------------|----------|----------|------------|
+| RV101 | Relief Valve | Closed | Bypass Stream 1 |
+| RV301 | Relief Valve | Closed | Bypass Stream 3 |
+| RV401 | Relief Valve | Closed | Bypass Stream 2 |
+| PCV122 | Pressure Control Valve | Closed | Main Stream |
+
+Additionally, **solenoid-operated valves (SOVs)**, such as **SOV123 and SOV152**, are installed for **automated safety control**.
+
+---
+
+### **Summary of Process Flow**
+1. **MEA enters the system** at a controlled **flow rate and pressure**.
+2. The **pump (J100)** ensures continuous circulation.
+3. The **filter (Z102)** removes impurities before **MEA enters the stripper column**.
+4. Various **valves regulate the flow** to ensure safety and optimal performance.
+5. **Instrumentation sensors continuously monitor** flow rate, pressure, and liquid levels.
+6. **Emergency safety measures**, such as **relief valves and alarm triggers**, provide **automatic shutdown mechanisms** in case of abnormalities.
+
+---
+
+## **Final Notes**
+This **detailed textual representation** of the P&ID **ensures an accurate recreation** of the process. It provides **clear documentation** of all **components, operational constraints, and safety mechanisms** used in the **carbon capture pilot plant**.
+
