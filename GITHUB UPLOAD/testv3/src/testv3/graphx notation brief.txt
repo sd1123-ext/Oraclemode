@@ -1,0 +1,33 @@
+G = nx.DiGraph()
+G.add_nodes_from([
+    'reactor effluent','HP separator V305','Make up hydrogen from hydrogen unit',
+    'Gas from HP separator V305','recycle hydrogen to C301 compressor','PIC 3-19',
+    'to flare','water drain','Liquid from HP separator V305','LIC 3-22',
+    'LP separator V306','Gas from LP separator V306','PIC 3-73','To Amine plant',
+    'Liquid from LP separator V306','FIC 3-21','To fractionator',
+    'sour water','Pressure relief valve','SP25','HIC 3-22'
+])
+G.add_edges_from([
+    ('reactor effluent', 'HP separator V305', {'tags': 'HP separator first inlet'}),
+    ('Make up hydrogen from hydrogen unit', 'HP separator V305', {'tags': 'HP separator second inlet'}),
+    ('HP separator V305', 'Gas from HP separator V305'),
+    ('Gas from HP separator V305', 'recycle hydrogen to C301 compressor', {'tags': 'HP separator first/top outlet'}),
+    ('HP separator V305', 'PIC 3-19'),
+    ('PIC 3-19', 'to flare', {'tags': 'HP separator second outlet'}),
+    ('HP separator V305', 'water drain', {'tags': 'HP separator third/bottom outlet'}),
+    ('HP separator V305', 'Liquid from HP separator V305', {'tags': 'HP separator fourth/bottom outlet'}),
+    ('Liquid from HP separator V305', 'LIC 3-22'),
+    ('LIC 3-22', 'LP separator V306'),
+    ('LP separator V306', 'Gas'),
+    ('Gas from LP separator V306', 'PIC 3-73'),
+    ('PIC 3-73', 'To Amine plant', {'tags': 'LP separator first outlet'}),
+    ('LP separator V306', 'Liquid from LP separator V306'),
+    ('Liquid from LP separator V306', 'FIC 3-21'),
+    ('FIC 3-21', 'To fractionator', {'tags': 'LP separator second outlet'}),
+    ('LP separator V306', 'sour water', {'tags': 'LP separator third outlet'}),
+    ('LP separator V306', 'Pressure relief valve', {'tags': 'LP separator fourth outlet'}),
+    ('Liquid from HP separator V305', 'SP25'),
+    ('SP25', 'LP separator V306'),
+    ('Liquid from HP separator V305', 'HIC 3-22'),
+    ('HIC 3-22', 'LP separator V306'),
+])

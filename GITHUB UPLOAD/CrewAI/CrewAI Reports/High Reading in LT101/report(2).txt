@@ -1,0 +1,47 @@
+**Anomaly: LT101 Reading = 99%**  
+The LT101 level transmitter has reported a reading of 99%, indicating that the liquid level in the Stripper Column is approaching the high-high level trigger. This measurement suggests that the liquid level is critically high, which poses risks for operational safety and efficiency. It is imperative to address this anomaly promptly to prevent potential overflow or system failure.
+
+---
+
+**Possible Causes of LT101 Reading = 99%**  
+1. **High Liquid Level in Stripper Column**  
+   - The reading of 99% precisely correlates with the danger threshold, suggesting an actual high liquid level condition in the Stripper Column (LT101).
+   
+2. **Valve Malfunction**  
+   - Failure or malfunction of relevant valves (e.g., V107, V200, V215) could hinder fluid flow regulation into or out of the Stripper Column, leading to liquid accumulation.
+   
+3. **Improper Flow Routing**  
+   - Misconfigurations or incorrect operation of bypass valves (e.g., V115, V120) can result in unintended rerouting of the flow, causing excessive liquid build-up.
+   
+4. **Unexpected Increase in Flowrate**  
+   - Sudden surges in flowrate through the main stream (FT103) can lead to an overcapacity condition in the Stripper Column.
+   
+5. **Insufficient Venting**  
+   - If venting mechanisms (e.g., thru relief valves, RV101) are malfunctioning or inappropriately closed, pressure accumulation can cause elevated liquid levels in the Stripper Column.
+   
+6. **Instrumentation Error**  
+   - The LT101 transmitter itself may be faulty or miscalibrated, leading to incorrect liquid level readings that do not reflect the true condition of the Stripper Column.
+   
+7. **Blocked Outflow**  
+   - An obstruction in the outflow line from the Stripper Column could create a barrier to liquid exiting, compounding the liquid level issue.
+
+---
+
+**How the Solution Will Fix the LT101 Issue**  
+To effectively address the LT101 anomaly, the following steps are proposed:
+
+1. **Immediate Inspection of LT101**: Confirm the accuracy of the LT101 reading by physically checking the liquid level within the Stripper Column. This includes calibrating the device if necessary.
+   
+2. **Evaluate Valve Operations**: Investigate and test the function of valves V107, V200, and V215 to ensure they are properly regulating flow. Any defective valves should be repaired or replaced immediately.
+   
+3. **Check for Flow Obstructions**: Examine the outflow from the Stripper Column for blockages. Cleaning out filters or strainers will facilitate proper drainage and lower liquid levels.
+   
+4. **Assess Flowrate Control**: Control flow entering the Stripper Column through FT103, applying adjustments to prevent any further accumulation of liquid.
+   
+5. **Investigate Venting Issues**: Ensure that all venting systems, particularly RV101, are clear and operational to avoid pressure buildup correlated with liquid level increases.
+   
+6. **Implement Temporary Bypass**: In urgent situations, establish temporary bypass routes to manually divert excess liquid flow away from the column, averting immediate overflow conditions.
+   
+7. **Schedule Regular Maintenance**: Introduce a comprehensive maintenance schedule focused on regular calibration of instrumentation and thorough inspections of valve functionality to preemptively address any future anomalies.
+
+By executing these corrective measures, the LT101 liquid level can be effectively managed, normal operating conditions restored, and the overall safety of plant operations ensured. Continuous monitoring and maintenance of all process units connected to the Stripper Column will also prevent the recurrence of such anomalies in the future.
